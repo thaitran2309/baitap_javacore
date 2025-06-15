@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Danh sách người</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h2>📋 Danh sách người</h2>
+<table border="1">
+    <tr>
+        <th>Họ tên</th>
+        <th>Ngày sinh</th>
+        <th>Nghề nghiệp</th>
+    </tr>
+    <tr th:each="n : ${nguoiList}">
+        <td th:text="${n.hoTen}"></td>
+        <td th:text="${#dates.format(n.ngaySinh, 'dd/MM/yyyy')}"></td>
+        <td th:text="${n.ngheNghiep}"></td>
+    </tr>
+
+</table>
+
+
+</body>
+</html>

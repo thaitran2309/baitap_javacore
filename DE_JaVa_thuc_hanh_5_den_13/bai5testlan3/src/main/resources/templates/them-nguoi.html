@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Thêm người</title></head>
+<body>
+<h2>Thêm người mới</h2>
+<form action="#" th:action="@{/nguoi/luu}" th:object="${nguoi}" method="post">
+  <label>Họ tên: <input type="text" th:field="*{hoTen}" /></label><br/>
+  <label>Ngày sinh: <input type="date" th:field="*{ngaySinh}" /></label><br/>
+  <label>Nghề nghiệp: <input type="text" th:field="*{ngheNghiep}" /></label><br/>
+  <label>Hộ dân:
+    <select th:field="*{hodan}">
+      <option th:each="h : ${hodanList}" th:value="${h}" th:text="${h.soNha}"></option>
+    </select>
+  </label><br/>
+  <button type="submit">Lưu</button>
+</form>
+<a href="/nguoi">⬅ Quay lại danh sách</a>
+</body>
+</html>
